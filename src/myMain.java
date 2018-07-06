@@ -1,11 +1,11 @@
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.X509TrustManager;
 import java.security.cert.X509Certificate;
 
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
 import javax.swing.JFrame;
 
 public class myMain 
@@ -38,13 +38,12 @@ public class myMain
 				return true;
 			}
 		};
-		
 		HttpsURLConnection.setDefaultHostnameVerifier(allHostsValid);
 		
 		Window window = new Window();
 		
-		window.setTitle("Francisco.Perez1@ibm.com");
-		window.setSize(500, 150);
+		window.setTitle("Envio de información");
+		window.setSize(500, 100);
 		window.setVisible(true);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

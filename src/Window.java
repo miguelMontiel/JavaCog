@@ -6,6 +6,7 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -24,8 +25,11 @@ public class Window extends JFrame implements ActionListener
 	private Cursor handCursor;
 	private Cursor textCursor;
 	
+	Post post;
+	
 	Window()
 	{
+		post = new Post();
 		jframe = new JFrame();
 		jpanel = new JPanel();
 		grouplayout = new GroupLayout(jpanel);
@@ -42,24 +46,40 @@ public class Window extends JFrame implements ActionListener
 		jlabel1.setCursor(textCursor);
 		jtextfield.setCursor(textCursor);
 		
+		jbutton.addActionListener(this);
+		
 		add(jpanel);
+		
+		jlabel2.setVisible(false);
 		
 		grouplayout.setHorizontalGroup(grouplayout.createSequentialGroup()
 				.addComponent(jlabel1)
 				.addComponent(jtextfield)
 				.addComponent(jbutton)
 				.addComponent(jlabel2));
-		
-		jlabel2.setVisible(false);
 	}
 	
 	public void actionPerformed(ActionEvent e) 
 	{
-		if(e.getSource() == jbutton)
+		if(e.getSource() == jbutton && !jtextfield.getText().isEmpty())
 		{
 			System.out.println(jtextfield.getText());
 			jtextfield.setText("");
 			jlabel2.setVisible(true);
+			
+			try 
+			{
+				post.sendPost(jtextfield.getText());
+			} 
+			catch (Exception e1) 
+			{
+				e1.printStackTrace();
+			}
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(jframe, "Ingresa una pregunta valida", "ERROR", 
+					JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }
