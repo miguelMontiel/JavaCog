@@ -35,7 +35,7 @@ public class Window extends JFrame implements ActionListener
 		grouplayout = new GroupLayout(jpanel);
 		
 		jlabel1 = new JLabel("Pregunta a enviar a Cog: ");
-		jlabel2 = new JLabel("Pregunta:  enviada!");
+		jlabel2 = new JLabel("Pregunta: ");
 		jtextfield = new JTextField(30);
 		jbutton = new JButton("Enviar"); 
 		
@@ -63,13 +63,15 @@ public class Window extends JFrame implements ActionListener
 	{
 		if(e.getSource() == jbutton && !jtextfield.getText().isEmpty())
 		{
-			System.out.println(jtextfield.getText());
+			jlabel2.setVisible(false);
+			String pregunta = jtextfield.getText();
 			jtextfield.setText("");
-			jlabel2.setVisible(true);
 			
 			try 
 			{
-				post.sendPost(jtextfield.getText());
+				post.sendPost(pregunta);
+				jlabel2.setText("Pregunta: '" + pregunta + "' enviada!");
+				jlabel2.setVisible(true);
 			} 
 			catch (Exception e1) 
 			{
@@ -78,8 +80,7 @@ public class Window extends JFrame implements ActionListener
 		}
 		else
 		{
-			JOptionPane.showMessageDialog(jframe, "Ingresa una pregunta valida", "ERROR", 
-					JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(jframe, "Ingresa una pregunta valida", "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }

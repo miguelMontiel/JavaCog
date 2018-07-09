@@ -42,8 +42,8 @@ public class myMain
 		
 		Window window = new Window();
 		
-		window.setTitle("Envio de información");
-		window.setSize(500, 100);
+		window.setTitle("Francisco.Perez1@ibm.com");
+		window.setSize(500, 125);
 		window.setVisible(true);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

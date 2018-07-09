@@ -10,7 +10,7 @@ import java.util.Map;
 public class Post 
 {	
 	public void sendPost(String pregunta) throws Exception
-	{				
+	{	
 		URL url = new URL("https://cognitiveassistant.in.edst.ibm.com:443/apiserver/api/v1/postQuestion");
 		URLConnection con = url.openConnection();
 		
@@ -20,10 +20,10 @@ public class Post
 		urlParameters.put("apiToken", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.IjRlN2ZjZTgzLThlN2EtNGYxYy1hYjk0LTE3N2E2YWIzODE4NCI.7I28yN8OOhv_6kQYNZ62BnqWuWGBhkxZAMFj81oMUOOAr35k3PYJLapC5-SJQ5rbfP591k_I9TG_5AM3TeMJbQ");
 		urlParameters.put("semanticQuestion", pregunta);
 		urlParameters.put("projectid", "2215");
-		urlParameters.put("userid", "Miguel.Montiel@ibm.com");
+		urlParameters.put("userid", "Francisco.Perez1@ibm.com");
 		urlParameters.put("source", "AgentAssist");
 		urlParameters.put("curatedLang", "es");
-		urlParameters.put("username", "Miguel.Montiel@ibm.com");
+		urlParameters.put("username", "Francisco.Perez1@ibm.com");
 		urlParameters.put("error_code", "");
 		
 		con.setDoOutput(true);
